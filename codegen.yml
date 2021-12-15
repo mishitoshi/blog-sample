@@ -1,7 +1,8 @@
 overwrite: true
 schema: "http://localhost:8000/__graphql"
 documents:
-  - "./node_modules/gatsby-*/**/*.js"
+#  - "./node_modules/gatsby-*/**/*.js"
+  - "node_modules/gatsby-source-microcms/!(node_modules)/**/*.js"
   - "./src/**/*.{ts,tsx}"
 generates:
   types/graphql-types.d.ts:

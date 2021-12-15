@@ -1,23 +1,27 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import * as React from 'react';
+import { Link, PageProps } from 'gatsby';
 
-const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  const isRootPath = location.pathname === rootPath
-  let header
+interface LayoutProps extends PageProps {
+  title: string | undefined | null;
+}
+
+const Layout = ({ location, title, children }: LayoutProps) => {
+  const rootPath = `${__PATH_PREFIX__}/`;
+  const isRootPath = location.pathname === rootPath;
+  let header;
 
   if (isRootPath) {
     header = (
       <h1 className="main-heading">
         <Link to="/">{title}</Link>
       </h1>
-    )
+    );
   } else {
     header = (
       <Link className="header-link-home" to="/">
         {title}
       </Link>
-    )
+    );
   }
 
   return (
@@ -26,11 +30,11 @@ const Layout = ({ location, title, children }) => {
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()} @mishitoshi
-        {` `}
+        {' '}
         All Rights Reserved
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

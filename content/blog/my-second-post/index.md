@@ -1,6 +1,13 @@
 ---
-title: My Second Post!
-date: "2015-05-06T23:46:37.121Z"
+title: テスト2
+description: テスト
+category: Blog
+tags:
+  - Markdown
+  - Blog
+date: "2018-05-28T22:40:32.169Z"
+thumbnail: "thumbnails/blog.png"
+draft: true
 ---
 
 Wow! I love blogging so much already.
