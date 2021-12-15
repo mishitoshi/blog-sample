@@ -1,4 +1,7 @@
 /* CSS Custom Properties Definitions */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --maxWidth-none: "none";
@@ -284,22 +287,6 @@ a:focus {
   font-family: var(--font-heading);
   text-decoration: none;
   font-size: var(--fontSize-2);
-}
-
-.bio {
-  display: flex;
-  margin-bottom: var(--spacing-16);
-}
-
-.bio p {
-  margin-bottom: var(--spacing-0);
-}
-
-.bio-avatar {
-  margin-right: var(--spacing-4);
-  margin-bottom: var(--spacing-0);
-  min-width: 50px;
-  border-radius: 100%;
 }
 
 .blog-post header h1 {

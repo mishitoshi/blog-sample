@@ -5,9 +5,9 @@ category: Blog
 tags:
 - Markdown
 - Blog
-  date: "2020-05-28T22:40:32.169Z"
-  thumbnail: "thumbnails/blog.png"
-  draft: true
+date: "2020-05-28T22:40:32.169Z"
+thumbnail: "thumbnails/blog.png"
+draft: true
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and

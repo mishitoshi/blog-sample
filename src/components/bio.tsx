@@ -20,6 +20,7 @@ const Bio = () => {
           }
           social {
             twitter
+            github
           }
         }
       }
@@ -31,26 +32,31 @@ const Bio = () => {
   const social = data.site.siteMetadata?.social;
 
   return (
-      <div className="bio">
-        <StaticImage
-            className="bio-avatar"
-            layout="fixed"
-            formats={['auto', 'webp', 'avif']}
-            src="../images/profile-pic.png"
-            width={50}
-            height={50}
-            quality={95}
-            alt="Profile picture"
-        />
-        {author?.name && (
-            <p>
-              Written by <strong>{author.name}</strong> {author?.summary || null}
-              {' '}
-              <a href={`https://twitter.com/${social?.twitter || ''}`}>
-                You should follow them on Twitter
-              </a>
-            </p>
-        )}
+      <div className="flex flex-row h-20">
+        <div className="xs:w-1/5 md:w-1/5 flex items-center justify-start h-full pr-4">
+          <StaticImage
+              className="rounded-full"
+              layout="fixed"
+              formats={['auto', 'webp', 'avif']}
+              src="../images/profile.jpg"
+              width={75}
+              height={75}
+              quality={95}
+              alt="Profile picture"
+          />
+        </div>
+        <div className="flex items-center h-full flex-col">
+          {author?.name && (
+              <div>
+                <p className="m-0 font-bold text-lg">{author.name}</p>
+                <p className="m-0">{author?.summary || null}</p>
+                <a href={`https://twitter.com/${social?.twitter || ''}`}>
+                  Twitter
+                </a>
+              </div>
+
+          )}
+        </div>
       </div>
   );
 };

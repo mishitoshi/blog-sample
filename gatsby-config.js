@@ -9,7 +9,7 @@ module.exports = {
     siteUrl: 'https://gatsbystarterblogsource.gatsbyjs.io/',
     social: {
       twitter: 'mishitoshiii',
-			githubL 'mishitoshiii'
+      github: 'mishitoshiii',
     },
   },
   plugins: [
@@ -129,5 +129,6 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    'gatsby-plugin-postcss',
   ],
 };
