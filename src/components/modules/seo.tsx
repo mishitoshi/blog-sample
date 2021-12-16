@@ -6,21 +6,21 @@
  */
 
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import { SeoInfoQuery } from '../../types/graphql-types';
 
-interface Props {
+interface SeoProps {
   description?: string;
   lang?: string;
   meta?: Array<object>;
   title: string;
 }
 
-const Seo = ({ description = '', lang = 'ja', meta = [], title }: Props) => {
+const Seo = ({ description = '', lang = 'ja', meta = [], title }: SeoProps) => {
   const { site } = useStaticQuery(
     graphql`
-      query {
+      query SeoInfo {
         site {
           siteMetadata {
             title
@@ -34,8 +34,8 @@ const Seo = ({ description = '', lang = 'ja', meta = [], title }: Props) => {
     `,
   );
 
-  const metaDescription = description || site.siteMetadata.description;
-  const defaultTitle = site.siteMetadata?.title;
+  const metaDescription = description || site?.siteMetadata?.description;
+  const defaultTitle = site?.siteMetadata?.title;
 
   return (
     <Helmet

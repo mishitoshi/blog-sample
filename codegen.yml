@@ -5,7 +5,7 @@ documents:
   - "node_modules/gatsby-source-microcms/!(node_modules)/**/*.js"
   - "./src/**/*.{ts,tsx}"
 generates:
-  types/graphql-types.d.ts:
+  src/types/graphql-types.d.ts:
     plugins:
       - "typescript"
       - "typescript-operations"

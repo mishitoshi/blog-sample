@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Link, graphql, PageProps } from 'gatsby';
 
-import Bio from '../components/bio';
-import Layout from '../components/layout';
-import Seo from '../components/seo';
-import { BlogPostBySlugQuery } from '../../types/graphql-types';
+import Bio from '../components/modules/bio';
+import Layout from '../components/modules/layout';
+import Seo from '../components/modules/seo';
+import { BlogPostBySlugQuery } from '../types/graphql-types';
 
 const BlogPostTemplate = function ({ data, location }: PageProps<BlogPostBySlugQuery>) {
   const post = data.markdownRemark;

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link, PageProps } from 'gatsby';
+import { Box, Container, Heading, VStack } from '@chakra-ui/react';
 
 interface LayoutProps extends PageProps {
   title: string | undefined | null;
@@ -25,15 +26,15 @@ const Layout = ({ location, title, children }: LayoutProps) => {
   }
 
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
+    <Container centerContent={true} minH="100vh" w="100vw" data-is-root-path={isRootPath}>
+      <Box className="global-header">{header}</Box>
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()} @mishitoshi
         {' '}
         All Rights Reserved
       </footer>
-    </div>
+    </Container>
   );
 };
 

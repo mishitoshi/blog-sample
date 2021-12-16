@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TagsQuery } from '../../types/graphql-types';
+import { TagsQuery } from '../types/graphql-types';
 
 // Components
 import { Link, graphql, PageProps } from 'gatsby';
