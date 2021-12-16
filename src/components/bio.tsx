@@ -32,10 +32,10 @@ const Bio = () => {
   const social = data.site.siteMetadata?.social;
 
   return (
-      <div className="flex flex-row h-20">
-        <div className="xs:w-1/5 md:w-1/5 flex items-center justify-start h-full pr-4">
+      <div className="">
+        <div className="">
           <StaticImage
-              className="rounded-full"
+              className=""
               layout="fixed"
               formats={['auto', 'webp', 'avif']}
               src="../images/profile.jpg"
@@ -45,11 +45,11 @@ const Bio = () => {
               alt="Profile picture"
           />
         </div>
-        <div className="flex items-center h-full flex-col">
+        <div className="">
           {author?.name && (
               <div>
-                <p className="m-0 font-bold text-lg">{author.name}</p>
-                <p className="m-0">{author?.summary || null}</p>
+                <p className="">{author.name}</p>
+                <p className="">{author?.summary || null}</p>
                 <a href={`https://twitter.com/${social?.twitter || ''}`}>
                   Twitter
                 </a>
