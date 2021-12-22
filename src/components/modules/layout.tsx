@@ -7,19 +7,19 @@ interface LayoutProps extends PageProps {
 }
 
 const Layout = ({ location, title, children }: LayoutProps) => {
-  const rootPath = `${__PATH_PREFIX__}/`;
+  const rootPath = '/';
   const isRootPath = location.pathname === rootPath;
   let header;
 
   if (isRootPath) {
     header = (
-      <h1 className="main-heading">
+      <Heading>
         <Link to="/">{title}</Link>
-      </h1>
+      </Heading>
     );
   } else {
     header = (
-      <Link className="header-link-home" to="/">
+      <Link to="/">
         {title}
       </Link>
     );
@@ -27,7 +27,7 @@ const Layout = ({ location, title, children }: LayoutProps) => {
 
   return (
     <Container centerContent={true} minH="100vh" w="100vw" data-is-root-path={isRootPath}>
-      <Box className="global-header">{header}</Box>
+      <Box>{header}</Box>
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()} @mishitoshi
