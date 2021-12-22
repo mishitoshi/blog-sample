@@ -8,6 +8,7 @@
 import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
+import { Box, Flex } from '@chakra-ui/react';
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -32,20 +33,20 @@ const Bio = () => {
   const social = data.site.siteMetadata?.social;
 
   return (
-      <div className="">
-        <div className="">
+      <Flex w={'100%'} justify={'center'}>
+        <Box>
           <StaticImage
               className=""
               layout="fixed"
               formats={['auto', 'webp', 'avif']}
-              src="../images/profile.jpg"
+              src="../../images/profile.jpg"
               width={75}
               height={75}
               quality={95}
               alt="Profile picture"
           />
-        </div>
-        <div className="">
+        </Box>
+        <div>
           {author?.name && (
               <div>
                 <p className="">{author.name}</p>
@@ -57,7 +58,7 @@ const Bio = () => {
 
           )}
         </div>
-      </div>
+      </Flex>
   );
 };
 
