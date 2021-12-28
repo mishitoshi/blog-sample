@@ -8,7 +8,7 @@
 import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, Link, VStack, Text } from '@chakra-ui/react';
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -34,30 +34,30 @@ const Bio = () => {
 
   return (
       <Flex w={'100%'} justify={'center'}>
-        <Box>
+        <Box p='6'>
           <StaticImage
-              className=""
+              style={{ borderRadius: '50%' }}
               layout="fixed"
               formats={['auto', 'webp', 'avif']}
               src="../../images/profile.jpg"
-              width={75}
-              height={75}
+              width={100}
+              height={100}
               quality={95}
               alt="Profile picture"
           />
         </Box>
-        <div>
+        <VStack p='6' justify='center'>
           {author?.name && (
-              <div>
-                <p className="">{author.name}</p>
-                <p className="">{author?.summary || null}</p>
-                <a href={`https://twitter.com/${social?.twitter || ''}`}>
+              <Box>
+                <Text fontWeight='bold' fontSize='lg'>{`@${author.name}`}</Text>
+                <Text fontSize='sm' color='gray.700'>{author?.summary || null}</Text>
+                <Link href={`https://twitter.com/${social?.twitter || ''}`}>
                   Twitter
-                </a>
-              </div>
+                </Link>
+              </Box>
 
           )}
-        </div>
+        </VStack>
       </Flex>
   );
 };
