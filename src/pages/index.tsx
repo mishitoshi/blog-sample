@@ -6,6 +6,7 @@ import Layout from '../components/modules/layout';
 import Seo from '../components/modules/seo';
 
 import { IndexQuery } from '../types/graphql-types';
+import { ListItem, UnorderedList, Heading } from '@chakra-ui/react';
 
 const BlogIndex = ({ data, location }: PageProps<IndexQuery>) => {
   const siteTitle = data.site?.siteMetadata?.title || 'Title';
@@ -29,25 +30,22 @@ const BlogIndex = ({ data, location }: PageProps<IndexQuery>) => {
       <Layout location={location} title={siteTitle}>
         <Seo title="All posts"/>
         <Bio/>
-        <ol style={{ listStyle: 'none' }}>
+        <UnorderedList style={{ listStyle: 'none' }}>
           {posts.map(post => {
             const title = post.frontmatter?.title || post.fields?.slug;
 
             return (
-                <li key={post.fields?.slug}>
+                <ListItem key={post.fields?.slug}>
                   <article
-                      className="post-list-item"
                       itemScope
                       itemType="http://schema.org/Article"
                   >
-                    <header>
-                      <h2>
-                        <Link to={post.fields?.slug} itemProp="url">
-                          <span itemProp="headline">{title}</span>
+                    <Heading as='h2' size={'lg'}>
+                        <Link to={post.fields?.slug} itemProp="url" itemProp="headline">
+                          {title}
                         </Link>
-                      </h2>
-                      <small>{post.frontmatter?.date}</small>
-                    </header>
+                    </Heading>
+                    <small>{post.frontmatter?.date}</small>
                     <section>
                       <p
                           dangerouslySetInnerHTML={{
@@ -57,10 +55,10 @@ const BlogIndex = ({ data, location }: PageProps<IndexQuery>) => {
                       />
                     </section>
                   </article>
-                </li>
+                </ListItem>
             );
           })}
-        </ol>
+        </UnorderedList>
       </Layout>
   );
 };
@@ -81,7 +79,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          date(formatString: "YYYY年MM月DD日")
           title
           description
         }

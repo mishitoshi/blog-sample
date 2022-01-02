@@ -18,7 +18,7 @@ interface SeoProps {
 }
 
 const Seo = ({ description = '', lang = 'ja', meta = [], title }: SeoProps) => {
-  const { site } = useStaticQuery(
+  const { site }: SeoInfoQuery = useStaticQuery(
     graphql`
       query SeoInfo {
         site {
@@ -67,7 +67,7 @@ const Seo = ({ description = '', lang = 'ja', meta = [], title }: SeoProps) => {
         },
         {
           name: 'twitter:creator',
-          content: site.siteMetadata?.social?.twitter || '',
+          content: site?.siteMetadata?.social?.twitter || '',
         },
         {
           name: 'twitter:title',
