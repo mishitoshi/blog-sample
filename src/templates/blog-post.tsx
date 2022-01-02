@@ -88,8 +88,9 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY年MM月DD日")
         description
+        tags
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

@@ -6,7 +6,7 @@ import Layout from '../components/modules/layout';
 import Seo from '../components/modules/seo';
 
 import { IndexQuery } from '../types/graphql-types';
-import { ListItem, UnorderedList, Heading } from '@chakra-ui/react';
+import { ListItem, UnorderedList, Heading, Box } from '@chakra-ui/react';
 
 const BlogIndex = ({ data, location }: PageProps<IndexQuery>) => {
   const siteTitle = data.site?.siteMetadata?.title || 'Title';
@@ -46,6 +46,14 @@ const BlogIndex = ({ data, location }: PageProps<IndexQuery>) => {
                         </Link>
                     </Heading>
                     <small>{post.frontmatter?.date}</small>
+                    <Box>{
+                      post.frontmatter!.tags!.length > 0 &&
+                          post.frontmatter!.tags!.map((tag, index) => {
+                            return (
+                                <a key={index}>{tag}</a>
+                            );
+                          })
+                    }</Box>
                     <section>
                       <p
                           dangerouslySetInnerHTML={{
@@ -82,6 +90,7 @@ export const pageQuery = graphql`
           date(formatString: "YYYY年MM月DD日")
           title
           description
+          tags
         }
       }
     }
